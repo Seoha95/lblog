@@ -1,0 +1,26 @@
+package com.haru.service;
+
+import org.springframework.stereotype.Service;
+
+import com.haru.mapper.ReplyMapperTest;
+import com.haru.model.Reply;
+
+@Service
+public class ReplyServiceImpl implements ReplyService{
+
+	 private final ReplyMapperTest mapper;
+	
+	 public ReplyServiceImpl(ReplyMapperTest mapper) {
+	        this.mapper = mapper;
+	    }
+	
+	@Override
+	 public void saveReply(String comment) {
+        // 댓글 등록에 필요한 로직 구현
+        // 예: 댓글 객체 생성, 데이터베이스에 저장 등
+        Reply reply = new Reply();
+        reply.setComment(comment);
+        mapper.saveReply(reply);
+    }
+	
+}

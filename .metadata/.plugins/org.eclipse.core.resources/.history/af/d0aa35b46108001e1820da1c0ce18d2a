@@ -1,0 +1,6 @@
+package com.haru.service;
+
+public interface ReplyService {
+	
+	void saveReply(String comment);
+}

@@ -1,0 +1,6 @@
+package com.haru.mapper;
+
+public interface ReplyMapper {
+    void saveReply(Reply reply);
+   
+}

@@ -1,0 +1,39 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.haru.model.Reply;
+import com.haru.service.ReplyService;
+
+@Controller
+@RequestMapping("/reply/")
+public class ReplyController {
+
+  @Autowired
+  private ReplyService replyService;
+
+  @PostMapping("/save")
+  @ResponseBody
+  public ResponseEntity<String> saveReply(@RequestParam("comment") String comment,
+                                          @RequestParam("author") String author,
+                                          @RequestParam("bno") int bno) {
+    // 댓글 등록 처리 로직
+    try {
+      Reply reply = new Reply(); // Reply 객체를 생성하여 필드 값을 설정
+      reply.setComment(comment);
+      reply.setAuthor(author);
+      reply.setBno(bno);
+
+      // 댓글 저장을 위한 서비스 메서드 호출
+      replyService.saveReply(reply);
+      return ResponseEntity.ok("댓글이 등록되었습니다.");
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("댓글 등록에 실패했습니다. 다시 시도해주세요.");
+    }
+  }
+}

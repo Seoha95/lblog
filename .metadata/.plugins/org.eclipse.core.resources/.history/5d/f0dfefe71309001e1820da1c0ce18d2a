@@ -1,0 +1,9 @@
+package com.haru.mapper;
+
+import com.haru.model.Reply;
+
+public interface ReplyMapper {
+    
+	public void saveReply(Reply reply)throws Exception;
+   
+}

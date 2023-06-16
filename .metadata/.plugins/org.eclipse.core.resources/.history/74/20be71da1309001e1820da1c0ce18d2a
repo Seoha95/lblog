@@ -1,0 +1,22 @@
+package com.haru.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.haru.mapper.ReplyMapper;
+import com.haru.model.Reply;
+
+@Service
+public class ReplyServiceImpl implements ReplyService{
+
+	@Autowired
+	private ReplyMapper mapper;
+
+	/* 댓글등록 */
+	@Override
+	 public void saveReply(Reply reply) throws Exception{
+     
+        mapper.saveReply(reply);
+    }
+	
+}

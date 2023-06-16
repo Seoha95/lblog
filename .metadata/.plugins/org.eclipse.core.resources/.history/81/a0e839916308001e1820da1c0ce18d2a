@@ -1,0 +1,5 @@
+package com.haru.model;
+
+public class Reply {
+
+}

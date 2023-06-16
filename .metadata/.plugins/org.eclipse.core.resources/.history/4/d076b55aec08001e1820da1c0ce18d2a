@@ -1,0 +1,42 @@
+package com.haru.mapper;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.haru.model.Reply;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+public class ReplyMapperTest {
+
+    @Autowired
+    private ReplyMapper mapper;
+
+    @Before
+    public void setup() {
+        // 테스트 데이터를 미리 준비하거나 설정할 경우 이곳에서 처리할 수 있습니다.
+    }
+
+    @Test
+    public void testSaveReply() {
+        // Given
+        Reply reply = new Reply();
+        reply.setComment("Test comment");
+
+        // When
+        mapper.saveReply(reply);
+
+        // Then
+        assertNotNull(reply.getRno()); // 댓글 번호가 생성되었는지 확인
+        assertEquals(reply.getComment(), saveReply.getComment()); // 저장된 댓글의 내용과 일치하는지 확인
+    }
+}
+
+

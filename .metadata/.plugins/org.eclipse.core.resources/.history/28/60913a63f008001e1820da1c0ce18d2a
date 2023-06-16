@@ -1,0 +1,7 @@
+package com.haru.service;
+
+public interface ReplyService {
+	
+	/* 댓글등록 */
+	public void saveReply(String comment)throws Exception;
+}

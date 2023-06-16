@@ -1,0 +1,12 @@
+package com.haru.mapper;
+
+import java.util.List;
+
+import com.haru.model.ReplyVO;
+
+public interface ReplyMapper {
+    
+	public List<ReplyVO> replyList(int bno) throws Exception;
+	
+   
+}

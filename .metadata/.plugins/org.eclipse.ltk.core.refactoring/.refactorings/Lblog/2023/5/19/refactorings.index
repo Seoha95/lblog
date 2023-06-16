@@ -1,0 +1,62 @@
+1683433322339	Rename resource 'BoardListrMapper.xml'
+1683434779928	Rename type 'BoardListImplService'
+1683437068416	Rename package 'com.haru.app'
+1683437092279	Rename package 'com.haru.app'
+1683437121571	Rename type 'JoinController'
+1683437439957	Delete element
+1683438972932	Delete element
+1683438977129	Delete element
+1683438981342	Delete element
+1683439281927	Rename resource 'BoardList'
+1683527470570	Copy file
+1683527509229	Delete element
+1683527731927	Copy file
+1683527942312	Delete element
+1683529013979	Copy file
+1683529149206	Copy file
+1683529744256	Delete element
+1683529759291	Delete element
+1683531215820	Move file
+1683531482023	Rename resource 'main.jsp'
+1683532177862	Move file
+1683532694435	Move file
+1683534688162	Rename resource 'enroll.jsp'
+1683697502898	Move folder
+1683697540529	Move file
+1683697563957	Move file
+1683697851840	Move folder
+1683697872094	Move file
+1683697896410	Move file
+1683699031733	Delete element
+1683699039892	Move file
+1683699047370	Delete element
+1683704505683	Delete element
+1683704509647	Delete element
+1683706062626	Move file
+1683706083894	Move file
+1683706092200	Move file
+1683706412068	Move file
+1683707098697	Delete element
+1683707103747	Delete element
+1683707113664	Rename resource 'summernote'
+1683801277949	Copy compilation unit
+1683801975276	Rename resource 'login.jsp'
+1683806752296	Copy compilation unit
+1683807201926	Delete element
+1683807495922	Delete element
+1683807646668	Rename resource 'home.jsp'
+1683808461310	Rename type 'UserController'
+1683808489957	Rename resource 'user'
+1683808907107	Rename resource 'memvers'
+1683953952101	Rename resource 'member.xml'
+1683953962795	Rename resource 'member2.xml'
+1683954002582	Rename resource 'members.xml'
+1683954332004	Rename type 'Members'
+1683954353651	Rename type 'MembersVO'
+1683954385080	Rename resource 'Members.xml'
+1683954962330	Rename type 'Member'
+1683955002397	Rename resource 'Member.xml'
+1683955272659	Copy compilation unit
+1683955290426	Copy compilation unit
+1683955504161	Rename type 'BoardListSerivceTest2'
+1683955656481	Rename type 'BoardListMapperTest2'

@@ -1,0 +1,20 @@
+package com.haru.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ReplyServiceImpl implements ReplyService{
+
+	 private final ReplyMapper mapper;
+	
+	 public ReplyServiceImpl(ReplyMapper mapper) {
+	        this.mapper = mapper;
+	    }
+	
+	@Override
+	public void saveReply(String comment) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

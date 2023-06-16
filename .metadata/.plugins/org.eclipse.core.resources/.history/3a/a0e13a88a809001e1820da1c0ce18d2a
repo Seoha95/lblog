@@ -1,0 +1,50 @@
+package com.haru.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.haru.mapper.ReplyMapper;
+import com.haru.model.ReplyVO;
+
+@Service
+public class ReplyServiceImpl implements ReplyService{
+
+	@Autowired
+	private ReplyMapper mapper;
+
+	// 댓글 조회
+	@Override
+	public List<ReplyVO> replyList(int bno) throws Exception {
+		
+		return mapper.replyList(bno);
+	}
+
+	// 댓글 등록
+	@Override
+	public void saveReply(ReplyVO vo) throws Exception {
+		
+		mapper.saveReply(vo);
+		
+	}
+	//댓글 수정
+	@Override
+	public void updateReply(ReplyVO vo) throws Exception {
+		
+		mapper.updateReply(vo);
+		
+	}
+	//댓글 삭제
+	@Override
+	public void deleteReply(ReplyVO vo) throws Exception {
+		
+		mapper.deleteReply(vo);
+		
+	}
+
+
+
+
+	
+}

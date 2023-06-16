@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.haru.mapper.BoardListMapper">
+  
+  <!-- 게시물 등록 -->
+  <insert id="writing">
+   INSERT INTO BOARDLIST(title, content, writer, category)  
+   VALUES(#{title}, #{content}, #{writer},#{category})
+  </insert>
+  
+  
+  <!-- 게시물 전체 조회 -->
+  <select id="viewAll" resultType="com.haru.model.BoardListVO">
+  
+  	select * from boardlist order by regdate desc
+ 
+  </select>
+  
+    <!-- 게시물 검색 조회 -->
+  <select id="search" parameterType="java.lang.String" resultType="com.haru.model.BoardListVO">
+  
+  	select * from boardlist 
+  	WHERE title LIKE CONCAT('%', #{keyword}, '%') OR content LIKE CONCAT('%', #{keyword}, '%')
+  	
+ 
+  </select>
+  
+  <!-- 카테고리별 게시물 조회 -->
+   <select id="getList" resultType="com.haru.model.BoardListVO">
+  
+  	select * from boardlist where category = #{category}
+ 
+  </select>
+  
+  <!-- 게시물 상세 조회 -->
+	<select id="getPage" resultType="com.haru.model.BoardListVO">
+	
+	select * from boardlist where title = #{title}
+	
+	</select>
+	
+	<!-- 게시물 목록 페이징 -->
+	<select id="getListPaging" resultType="com.haru.model.BoardListVO">
+	
+	select * from (
+		select bno, title, writer, regdate, category
+		from boardlist where category = #{category} order by bno desc ) as T1
+		limit #{skip},#{amount}
+	
+	</select>
+	
+	<!-- 게시물 총 개수 -->
+  	<select id="getTotal" resultType="int">
+  		
+  		select count(*) from boardlist where category = #{category}
+  	
+  	</select>
+  
+  
+  
+  </mapper>

@@ -1,0 +1,25 @@
+
+6월 04, 2023 11:03:15.860 NEW SESSION
+6월 04, 2023 11:03:15.860 [18856:9912:0604/110315.857:ERROR:cert_verify_proc_builtin.cc(679)] CertVerifyProcBuiltin for api.lunamedia.io failed:
+6월 04, 2023 11:03:15.861 ----- Certificate i=0 (CN=*.lunamedia.io) -----
+6월 04, 2023 11:03:15.862 ERROR: Time is after notAfter
+6월 04, 2023 11:03:15.862 
+6월 04, 2023 11:03:15.863 
+6월 04, 2023 15:03:15.998 [18856:8696:0604/150315.998:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.114 [18856:8696:0604/150316.114:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.264 [18856:8696:0604/150316.264:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.373 [18856:8696:0604/150316.372:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.527 [18856:8696:0604/150316.527:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.640 [18856:8696:0604/150316.640:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.758 [18856:8696:0604/150316.758:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:16.956 [18856:8696:0604/150316.956:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:17.262 [18856:8696:0604/150317.262:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:17.374 [18856:8696:0604/150317.373:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:17.496 [18856:8696:0604/150317.496:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:17.791 [18856:8696:0604/150317.790:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:17.891 [18856:8696:0604/150317.891:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:18.07 [18856:8696:0604/150318.006:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:18.132 [18856:8696:0604/150318.132:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:18.423 [18856:8696:0604/150318.423:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:18.523 [18856:8696:0604/150318.523:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s
+6월 04, 2023 15:03:18.646 [18856:8696:0604/150318.646:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.371 s for first_image_paint 0.363 s

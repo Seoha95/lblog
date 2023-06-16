@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.haru.mapper.MemberMapper">
+  
+  <!-- 회원등록 -->
+  <insert id="register">
+	    INSERT INTO MEMBER(id, pw1, name) VALUES(#{id}, #{pw1}, #{name});
+    </insert>
+  
+  <!-- 로그인 -->
+  <select id="login" resultType="com.haru.model.MemberVO">
+  		SELECT id, pw1 FROM MEMBER WHERE id =#{id} AND pw1=#{pw1};
+  </select>
+  
+  <!-- 아이디 중복체크 -->
+  <select id="idCheck" resultType="com.haru.model.MemberVO">
+  		SELECT * FROM MEMBER WHERE id =#{id};
+  </select>
+  
+  <!-- 비밀번호 찾기 -->
+  <select id="searchPw" resultType="com.haru.model.MemberVO">
+  		SELECT pw1 FROM MEMBER WHERE id =#{id} AND name = #{name}; 
+  </select>
+  
+    <!-- 비밀번호 찾기 -->
+  <select id="searchId" resultType="com.haru.model.MemberVO">
+  		SELECT id FROM MEMBER WHERE name =#{name} AND pw1 = #{pw1}; 
+  </select>
+  
+  </mapper>

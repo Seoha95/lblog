@@ -1,0 +1,46 @@
+package com.haru.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.haru.model.BoardListVO;
+import com.haru.service.BoardListService;
+
+@Controller
+public class BoardListController{
+	
+	@Autowired
+	BoardListService boardListService;
+	
+	  private static final Logger log = LoggerFactory.getLogger(BoardListController.class);
+
+	  @GetMapping("/")
+	  public String mainGET() {
+		  log.info("게시물 등록 페이지 진입");
+		  
+		  return "/boardList/main";
+	  }
+	  
+	  @GetMapping("/writing")
+	  public String blogWriting() {
+		  log.info("게시물 등록 페이지 진입");
+		  
+		  return "/boardList/writing";
+	  }
+	  
+	  @PostMapping("/write")
+	  public String boardEnroll(BoardListVO vo) throws Exception {
+		  log.info("게시물 등록");
+		  
+		  vo.setThumbnail(null)
+		  boardListService.writing(vo);
+		  
+		  return "/boardList/main";
+	  }
+	  
+	 
+}

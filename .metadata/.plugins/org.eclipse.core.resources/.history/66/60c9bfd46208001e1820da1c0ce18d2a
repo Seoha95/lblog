@@ -1,0 +1,6 @@
+package com.haru.mapper;
+
+public interface ReplyMapper {
+    void saveReply(Reply reply);
+    // 다른 필요한 메서드들을 추가로 정의할 수 있습니다.
+}

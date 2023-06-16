@@ -1,0 +1,15 @@
+package com.haru.mapper;
+
+import java.util.List;
+
+import com.haru.model.ReplyVO;
+
+public interface ReplyMapper {
+    
+	/* 댓글조회 */
+	public List<ReplyVO> replyList(int bno) throws Exception;
+	
+	
+	public void saveReply(ReplyVO vo) throws Exception;
+   
+}

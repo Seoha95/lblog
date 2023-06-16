@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<title>Insert title here</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/search.css">
+<style>
+
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
+ul li {
+  display: inline;
+  padding-left: 30px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo_bar {
+  width: 600px;
+  float: left;
+  margin-left: 20px;
+  margin-right: -10px;
+}
+
+.top_bar {
+  list-style: none;
+  margin-top: 100px;
+  margin-left: 100px;
+  border-bottom: 2px solid lightgrey;
+  padding-bottom: 20px;
+  width: 85%;
+}
+
+.search-box {
+  padding: 10px;
+  position: absolute;
+  top: 5%;
+  left: 70%;
+  transform: translate(-50%,-50%);
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #90caf9;
+  border-radius: 30px;
+  transition: 0.4s;
+  width: 30px;
+}
+
+.search-box:hover {
+  box-shadow: 0px 0px .5px 1px #90caf9;
+  width: 282px;
+}
+
+.search-btn {
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  color: #90caf9;
+}
+
+.search-box:hover > .search-btn {
+  background-color: #fff;
+}
+
+.search-txt {
+  display: flex;
+  padding: 0;
+  width: 0px;
+  border: none;
+  background: none;
+  outline: none; /* input태그 포커스시 outline 제거 */
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .4s; /* 변환시간 4초 */
+}
+
+.search-box:hover > .search-txt {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.login_btn {
+  text-decoration: none;
+  position: absolute;
+  top: 4%;
+  left: 85%;
+  font-size: 25px;
+}
+    </style>
+    
+    
+</head>
+<body>
+<% String keyword = (String)request.getParameter("keyword"); %>
+
+		    <div class="topArea">
+			    <div class="search-box">
+			      <input type="text" class="search-txt" name="keyword" placeholder="검색어를 입력하세요">
+			      <a class="search-btn" href="/?keyword=<%=keyword%>">
+			        <i class="fas fa-search"></i>
+			      </a>
+		    	</div>
+		  <c:if test="${not empty sessionScope.memId}">
+		  	<a href="/members/logout" class="login_btn">logout</a>
+		  </c:if>
+		   <c:if test="${empty sessionScope.memId}">
+		    <a href="/members/login" class="login_btn">login</a>
+		   </c:if> 
+	    </div>
+	    
+	<ul class="top_bar">
+		<li class="logo_bar"><a href="/">LBLOG</a></li>
+		<li id="travel_link" class="travel_bar"><a href="/travel?c=travel">여행</a></li>
+		<li id="cafe_link" class="cafe_bar"><a href="/cafe?c=cafe">카페</a></li>
+		<li id="bestStore_link" class="bestStore_bar"><a href="/bestStore?c=bestStore">맛집</a></li>
+		<li id="hobby_link" class="hobby_bar"><a href="/hobby?c=hobby">취미</a></li>
+	</ul>

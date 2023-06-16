@@ -1,0 +1,88 @@
+package com.haru.mapper;
+
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.haru.model.BoardListVO;
+import com.haru.model.Criteria;
+import com.haru.model.ReplyVO;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+public class BoardListMapperTest {
+
+    private static final Logger log = LoggerFactory.getLogger(BoardListMapperTest.class);
+    
+    @Autowired
+    private BoardListMapper mapper;
+    
+    @Autowired
+    private ReplyMapper rmapper;
+
+	/*
+	 * @Test public void testEnroll() throws Exception {
+	 * 
+	 * BoardListVO vo = new BoardListVO();
+	 * 
+	 * 
+	 * vo.setTitle("mapper test"); vo.setContent("mapper test");
+	 * vo.setWriter("mapper test"); vo.setCategory("mapper test");
+	 * mapper.writing(vo);
+	 * 
+	 * }
+	 */
+    
+    
+	/*
+	 * @Test public void testVeiwAll() throws Exception {
+	 * 
+	 * BoardListVO vo = new BoardListVO(); List<BoardListVO> list =
+	 * mapper.viewAll(vo); for(Object a : list) { log.info("" + a); }
+	 * 
+	 * }
+	 */
+    
+    
+	/*
+	 * @Test public void testGetPage() throws Exception{
+	 * 
+	 * String title = "cafe"; log.info("" + mapper.getPage(title)); }
+	 */
+    
+    /* 게시판 카테고리별 목록(페이징 적용) 테스트 */
+    
+//    @Test
+//    public void testGetListPaging() throws Exception {
+//    	
+//    	Criteria cri = new Criteria();
+//    	
+//    	 cri.setPageNum(1);
+//         cri.setAmount(10);
+//         cri.setCategory("cafe"); // 카테고리 정보 설정
+//    	
+//    	
+//    	List<BoardListVO> list = mapper.getListPaging(cri);
+//    	
+//    	list.forEach(boardlist -> log.info("" + boardlist));
+//    }
+    
+    @Test
+	  public void testSaveReply()throws Exception{
+		  
+		  ReplyVO vo = new ReplyVO();
+		  vo.setBno(365);
+		  vo.setComment("댓글내용");
+		  vo.setAuthor("kim@naver.com");
+		  
+		  rmapper.saveReply(vo);
+		  
+	  }
+}

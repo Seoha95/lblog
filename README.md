@@ -22,7 +22,7 @@
 </br>
 
 ### 3.ERD
-<img src="./lblog.git" >
+<img src="./lblog.git" />
 
 </br>
 

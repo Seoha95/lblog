@@ -18,11 +18,13 @@
 * summernote
 * css   
 
+</br>   
+### 3.프로젝트 스토리보드       
 
 </br>
 
-### 3.ERD
-<img src="./lblog.gif"/>
+### 4.프로젝트 영상
+![lblog](https://github.com/Seoha95/lblog/assets/107228582/ef6245e0-2e99-4989-bb47-85c4907df3d3)
 
 </br>
 

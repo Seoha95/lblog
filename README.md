@@ -22,7 +22,7 @@
 </br>
 
 ### 3.ERD
-<img src="./lblog.gif />
+<img src="lblog.gif/>
 
 </br>
 

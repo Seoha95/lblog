@@ -21,7 +21,7 @@
 </br>   
 
 ### 3.프로젝트 스토리보드       
-
+[storyboard.pdf](https://github.com/Seoha95/lblog/files/11785004/storyboard.pdf)    
 </br>
 
 ### 4.프로젝트 영상

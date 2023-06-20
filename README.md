@@ -71,7 +71,7 @@
  * 카테고리별 게시물 총 갯수 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/resources/com/haru/mapper/BoardListMapper.xml#L68-L73)
     * 카테고리 정보가 넘어오면 예를 들어 취미라면 취미로 등록된 카테고리의 갯수를 뽑아서 화면에 출력해줍니다.     
 #### 4-4. 게시물 검색     
- * 게시물 검색 기능 📍[코드확인1](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L109-L122)                    📍[코드확인2](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L133-L140)
+ * 게시물 검색 기능 📍[코드확인1](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L109-L122)                    [코드확인2](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L133-L140)
     * 검색을 할 때 키워드를 통해 일치하는 제목이나 내용을 조회해줍니다.   
  
 #### 4-5 페이징 기법    

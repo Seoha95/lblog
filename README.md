@@ -129,7 +129,9 @@ form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 �
 ```                 
 </details>	
 
-
+<details>
+<summary>개선된 코드</summary>
+</details>
                
 
    

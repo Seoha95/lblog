@@ -91,42 +91,7 @@ form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 �
    
 <details>      
 <summary>기존코드</summary>      
-```
-	<div>
-			<div class="title"><c:out value="${pageInfo.title}"/></div>
-			
-			<div class="summernote" name="content">${pageInfo.content}</div>
-	</div>
-
-	<div id="reply">
-		<ol class="replyList">
-			<c:forEach items="${readReply}" var="readReply">
-				<li>
-					<p>
-					작성자 : ${readReply.author}</p>
-					<p>작성 날짜 : <fmt:formatDate value="${readReply.regdate}" pattern="yyyy-MM-dd" /></p>
-					<p>${readReply.comment}</p>
-
-	
-	<form action="/saveReply" method="post">
-	<input type="hidden" id="bno" name="bno" value="${ readReply.bno}"/>
-				</li>	
-			</c:forEach>
-		</ol>
-		
-		
-	</div>
-	
-	<div>
-		<label for="author">댓글 작성자</label>
-		<input type="text" id="author" name="author" value=<%=session.getAttribute("memId") %>>
-		<label for="comment">댓글내용</label>
-		<input type="text" id="comment" name="comment">
-		<button type="submit">작성</button>
-	</div>
-	
-	</form>
-```                 
+                
 </details>	
 
 <details>

@@ -132,55 +132,9 @@ form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 �
 
 <details>           
 <summary>개선된 코드</summary>      
-```    
-<div class="blog_container">
-	<div class="content_wrapper">
-			<div class="title"><c:out value="${pageInfo.title}"/></div>
-			
-			<div class="summernote" name="content">${pageInfo.content}</div>
-	</div>
-	<div class="btn_wrap">
-	 <a class="btn" id="list_btn">목록 페이지</a> 
-	  <c:if test="${pageInfo.writer == sessionScope.memId}">
-     <a class="btn" id="modify_btn">수정 하기</a>
-      </c:if>
-	</div>
-	<button type="button" id="toggleReplies">댓글보기</button>
-	<form id="infoForm" action="/modify" method="get">
-		<input type="hidden" id="bno" name="bno" value="${pageInfo.bno}"/>
-	</form>
-	<div class="reply" id="reply">	
-		<ol class="replyList">
-			<c:forEach items="${readReply}" var="readReply">
-				<li>
-					<p>
-					작성자 : ${readReply.author}</p>
-					<p>작성 날짜 : <fmt:formatDate value="${readReply.regdate}" pattern="yyyy-MM-dd" /></p>
-					<p>${readReply.comment}</p>
-				<div>
-					<c:if test="${readReply.author == sessionScope.memId}">
-						<button type="button" class="deleteBtn" data-rno="${readReply.rno}">삭제</button>
-					</c:if>
-				</div>
-						<input type="hidden" id="bno" name="bno" value="${ readReply.bno}"/>
-				</li>	
-			</c:forEach>
-		</ol>
-			
-	<div>
-		<label for="author">댓글 작성자</label>
-		<input type="text" id="author" name="author" value=<%=session.getAttribute("memId") %>>
-		<label for="comment">댓글내용</label>
-		<input type="text" id="comment" name="comment">
-		<button type="button" id="replySubmitBtn">작성</button>
-	</div>
-	
-	
-</div>
-</div>
-```         		
+       		
 </details>                   
- 
+
    
    
 ### 6. 느낀점    

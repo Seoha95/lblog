@@ -30,35 +30,55 @@
 </br>
 
 ### 5.핵심기능
-이 서비스의 핵심은 사용자가 원하는 카테고리의 게시물을 작성할 수 있습니다.   
-그리고 게시물의 댓글을 작성하고 삭제하는 기능이 있습니다.    
-또한 게시물이 8개가 넘으면 페이징 기능이 있어서 페이지가 생기고 게시물이 다음 페이지에 표시가 됩니다.   
+ * 회원 가입 및 로그인 기능 : 사용자가 회원으로 가입하고 로그인하여 블로그를 작성하고 관리할 수 있습니다.
+ * 블로그 작성 및 관리 : 사용자는 블로그를 작성하고 수정할 수 있습니다.
+ * 댓글 기능 : 사용자는 블로그에 댓글을 작성하고 작성한 댓글을 삭제할 수 있습니다.
+ * 검색 기능 : 사용자가 원하는 게시물을 제목이나 내용에 포함된 키워드를 검색하여 조회할 수 있습니다.   
    
 <details>
 <summary>핵심기능설명펼치기</summary>   
    
-#### 4-1. 핵심코드   
+#### 5-1. 사용자의 회원등록 및 인증      
+ * 회원가입 기능  📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/members/joinForm.jsp#L111-L185)
+     * 아이디 입력 : 사용자는 아이디를 입력해야 합니다. 입력한 아이디는 중복 여부를 확인하기 위해 실시간으로
+       서버와 통신하여 검사됩니다.
+        * 중복된 아이디인 경우 : "사용할 수 없는 이메일입니다." 메세지가 빨간색으로 표시됩니다.
+        * 중복되지 않은 아이디인 경우 : "사용할 수 있는 이메일입니다." 메세지가 파란색으로 표시됩니다.
+      * 비밀번호 입력 및 확인 : 사용자는 비밀번호와 비밀번호 확인을 입력해야 합니다.       
+         * 비밀번호와 비밀번호 확인이 일치하는 경우 : "비밀번호 일치" 메세지가 파란색으로 표시됩니다.
+         * 비밀번호와 비밀번호 확인이 일치하지 않는 경우 : "비밀번호 불일치" 메세지가 빨간색으로 표시됩니다.
+      * 사용자 등록 : 기본정보 입력 후 가입하기 버튼을 클릭하면 회원등록이 됩니다.
+* 로그인 기능 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/members/loginForm.jsp#L85-L99)   
+   * 사용자 인증 : 로그인 페이지를 통해 사용자의 아이디과 비밀번호를 입력받아 인증합니다.  
    
+#### 5-2. summernote로 게시물 등록 및 수정      
+ * 게시물 등록 기능 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/boardList/writing.jsp#L49-L137)
+    * 게시물 등록 : 사용자가 제목과 내용을 입력하고 카테고리를 선택하냐 후 게시물을 등록할 수 있는 기능입니다.
+    * 게시물 수정 : 사용자가 작성자일 경우 제목과 내용을 수정할 수 있습니다.
+       
+#### 5-3. 게시물 상세보기와 댓글 등록 및 삭제            
+ * 게시물 상세보기와 댓글 등록 및 삭제 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/boardList/get.jsp#L101-L251)   
+   * 게시물 상세보기 : 비회원과 회원 둘 다 게시물을 볼 수 있고 게시물 작성자에게만 게시물 하단에 목록보기와 수정하기가 뜹니다.
+   * 게시물에 대한 댓글 등록 : 로그인 시에만 작성할 수 있고 자동으로 작성자란에 아이디가 들어가고 댓글내용 부분에 원하는 댓글을 쓰고 등록할 수 있습니다.
+   * 게시물 댓글보기 및 삭제 : 댓글보기를 클릭 시, 로그인을 안했을 경우 로그인 페이지로 넘어가고 로그인 시에는 댓글들을 볼 수 있습니다. 그리고
+     댓글 작성자에게만 삭제버튼이 보이고 댓글을 삭제할 수 있습니다.       
    
-#### 4-2. summernote로 게시물 에디터 기능
- * 게시물을 작성하고   
-#### 4-3. 장바구니   
- * 장바구니에 상품 담기 📍[코드확인](https://github.com/Seoha95/marguerite/blob/8a785e7e7adf4bf9632a3b73bb1d144eee24c273/src/dao/DAO.java#L470-L507)   
-    * 이미 있는 상품을 장바구니에 담았을 때 수량만 업데이트하고 없는 상품을 담았을 때 insert를 할 수 있습니다.   
-   
-#### 4-4. 검색기능   
- * 상품 검색 기능 📍[코드확인](https://github.com/Seoha95/marguerite/blob/1fb810d8ee963d0f779f423048e90d01b9295b1b/src/dao/DAO.java#L205-L232)   
-    * 상품을 검색하는 기능입니다.      
-   
-#### 4-4. 베스트 상품보기   
- * 베스트 상품 띄우기 기능 📍[코드확인](https://github.com/Seoha95/marguerite/blob/8a785e7e7adf4bf9632a3b73bb1d144eee24c273/src/dao/DAO.java#L255-L277)    
-    * PRODUCT3 테이블을 판매량과 가격을 내림차순으로 정렬해서 10개의 상품만 검색되도록 작성했습니다.    
-    * 판매량이 높고 가격이 높은 10개 상품이 베스트 상품으로 뜨게 됩니다.   
+#### 4-4. 카테고리별 게시물 조회    
+ * 카테고리 넘기기📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L124-L130)   
+   * header에서 맛집, 카페, 취미, 여행 카테고리 중에 하나를 선택시에 카테고리 정보도 url을 통해 같이 넘깁니다.   
+ * 카테고리별 처리하기 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/java/com/haru/controller/BoardListController.java#L45-L131)   
+    * 카테고리 정보가 넘어오면 해당 카테고리 목록을 가져오도록 합니다.
+ * 카테고리별 게시물 총 갯수 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/resources/com/haru/mapper/BoardListMapper.xml#L68-L73)
+    * 카테고리 정보가 넘어오면 예를 들어 취미라면 취미로 등록된 카테고리의 갯수를 뽑아서 화면에 출력해줍니다.     
+#### 4-4. 게시물 검색     
+ * 게시물 검색 기능 📍[코드확인1](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L109-L122)                    📍[코드확인2](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L133-L140)
+    * 검색을 할 때 키워드를 통해 일치하는 제목이나 내용을 조회해줍니다.   
  
-#### 4-5 회원정보 조회 
- * 관리자모드 회원정보 조회 기능 📍[코드확인](https://github.com/Seoha95/marguerite/blob/8a785e7e7adf4bf9632a3b73bb1d144eee24c273/src/dao/DAO.java#L686-L715)   
-   * SIGNUP3, shipping 테이블을 id로 조인하여 회원의 정보를 조회합니다.    
-   * 회원의 아이디, 비밀번호, 전화번호, 이름, 주소를 확인할 수 있습니다.      
+#### 4-5 페이징 기법    
+ * 취미, 맛집, 카페, 여행 페이지만 페이징 기법 적용 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/boardList/travel.jsp#L96-L176)   
+    * 여행페이지를 예시로 설명하면 이전페이지로 가는 화살표는 11페이지로 넘어가면 표시되고 다음페이지 화살표는 11페이지 이상일 때 10페이지 전에 가 있으면 표시된다.
+    * 해당 페이지는 삼항 연산자를 통해서 해당 페이지일 경우에는 색이 글자 위에 씌워지게 설정을 했습니다.
+    * 카테고리별로 게시물이 1개부터 8개까지만 한 페이지 당 표시되도록 설정했습니다.         
  
 </br>
 </details>   
@@ -66,28 +86,19 @@
 ### 5.핵심 트러블 슈팅   
    
 #### 5-1 상품을 결제를 할 때와 상품 삭제를 할 때 이동 페이지 다르게 주는 문제   
-선택한 상품을 결제할 때는 아임포트 결제 API 페이지가 띄워지고 상품을 삭제를 할 때에도    
-아임포트 결제 API 페이지를 들렸다가 삭제가 되는 문제가 있었으나 버튼 클릭시 이동페이지를    
-다르게 설정해서 분리 시킬 수 있었습니다.   
+
    
 <details>      
 <summary>기존코드</summary>      
-   
-<img src="./기존코드.PNG" width="900" height="900">   
+    
      
 </details>       
           
 <details>      
 <summary>개선된 코드</summary>      
    
-<img src="./이동경로설정2.PNG" width="600" height="600">   
-   
-<img src="./이동경로설정.PNG" width="900" height="900">    
 </details>   
    
    
 ### 6. 느낀점    
-   
-블로그를 구현할 때 카테고리별로 게시물을 가져오고 해당 페이지 상단 메뉴바만 색이 다르게 구현하려고 할 때    
-어떻게 구현을 할지 고민을 하고 구현은 header에서 맛집, 여행, 카페, 취미 카테고리를 클릭하면 해당 카테고리를   
-카페?카테고리='맛집' 이런식으로 넘겨주어서 카테고리별로 데이터를 뽑을 수 있었습니다.    
+

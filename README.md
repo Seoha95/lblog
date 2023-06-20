@@ -63,18 +63,18 @@
    * 게시물 댓글보기 및 삭제 : 댓글보기를 클릭 시, 로그인을 안했을 경우 로그인 페이지로 넘어가고 로그인 시에는 댓글들을 볼 수 있습니다. 그리고
      댓글 작성자에게만 삭제버튼이 보이고 댓글을 삭제할 수 있습니다.       
    
-#### 4-4. 카테고리별 게시물 조회    
+#### 5-4. 카테고리별 게시물 조회    
  * 카테고리 넘기기📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L124-L130)   
    * header에서 맛집, 카페, 취미, 여행 카테고리 중에 하나를 선택시에 카테고리 정보도 url을 통해 같이 넘깁니다.   
  * 카테고리별 처리하기 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/java/com/haru/controller/BoardListController.java#L45-L131)   
     * 카테고리 정보가 넘어오면 해당 카테고리 목록을 가져오도록 합니다.
  * 카테고리별 게시물 총 갯수 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/resources/com/haru/mapper/BoardListMapper.xml#L68-L73)
     * 카테고리 정보가 넘어오면 예를 들어 취미라면 취미로 등록된 카테고리의 갯수를 뽑아서 화면에 출력해줍니다.     
-#### 4-4. 게시물 검색     
+#### 5-5. 게시물 검색     
  * 게시물 검색 기능 📍[코드확인1](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L109-L122)                    [코드확인2](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/set/header.jsp#L133-L140)
     * 검색을 할 때 키워드를 통해 일치하는 제목이나 내용을 조회해줍니다.   
  
-#### 4-5 페이징 기법    
+#### 5-6 페이징 기법    
  * 취미, 맛집, 카페, 여행 페이지만 페이징 기법 적용 📍[코드확인](https://github.com/Seoha95/lblog/blob/0433ad688556013f3fbf6a2d006dd07db3abb1c3/Lblog/src/main/webapp/WEB-INF/views/boardList/travel.jsp#L96-L176)   
     * 여행페이지를 예시로 설명하면 이전페이지로 가는 화살표는 11페이지로 넘어가면 표시되고 다음페이지 화살표는 11페이지 이상일 때 10페이지 전에 가 있으면 표시된다.
     * 해당 페이지는 삼항 연산자를 통해서 해당 페이지일 경우에는 색이 글자 위에 씌워지게 설정을 했습니다.
@@ -83,22 +83,105 @@
 </br>
 </details>   
    
-### 5.핵심 트러블 슈팅   
+### 6.핵심 트러블 슈팅   
    
-#### 5-1 상품을 결제를 할 때와 상품 삭제를 할 때 이동 페이지 다르게 주는 문제   
-
+#### 6-1 첫 댓글 등록 문제
+처음에는 댓글을 등록할 때 블로그에서 바로 등록을 못하고 db에서 첫 댓글 데이터를 넣어줘야 등록되는 문제가 있었습니다.   
+form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 해결이 되었습니다.   
    
 <details>      
 <summary>기존코드</summary>      
-    
+```
+	<div>
+			<div class="title"><c:out value="${pageInfo.title}"/></div>
+			
+			<div class="summernote" name="content">${pageInfo.content}</div>
+	</div>
+
+	<div id="reply">
+		<ol class="replyList">
+			<c:forEach items="${readReply}" var="readReply">
+				<li>
+					<p>
+					작성자 : ${readReply.author}</p>
+					<p>작성 날짜 : <fmt:formatDate value="${readReply.regdate}" pattern="yyyy-MM-dd" /></p>
+					<p>${readReply.comment}</p>
+
+	
+	<form action="/saveReply" method="post">
+	<input type="hidden" id="bno" name="bno" value="${ readReply.bno}"/>
+				</li>	
+			</c:forEach>
+		</ol>
+		
+		
+	</div>
+	
+	<div>
+		<label for="author">댓글 작성자</label>
+		<input type="text" id="author" name="author" value=<%=session.getAttribute("memId") %>>
+		<label for="comment">댓글내용</label>
+		<input type="text" id="comment" name="comment">
+		<button type="submit">작성</button>
+	</div>
+	
+	</form>
+```       
      
 </details>       
           
 <details>      
 <summary>개선된 코드</summary>      
-   
+```
+<div class="blog_container">
+	<div class="content_wrapper">
+			<div class="title"><c:out value="${pageInfo.title}"/></div>
+			
+			<div class="summernote" name="content">${pageInfo.content}</div>
+	</div>
+	<div class="btn_wrap">
+	 <a class="btn" id="list_btn">목록 페이지</a> 
+	  <c:if test="${pageInfo.writer == sessionScope.memId}">
+     <a class="btn" id="modify_btn">수정 하기</a>
+      </c:if>
+	</div>
+	<button type="button" id="toggleReplies">댓글보기</button>
+	<form id="infoForm" action="/modify" method="get">
+		<input type="hidden" id="bno" name="bno" value="${pageInfo.bno}"/>
+	</form>
+	<div class="reply" id="reply">	
+		<ol class="replyList">
+			<c:forEach items="${readReply}" var="readReply">
+				<li>
+					<p>
+					작성자 : ${readReply.author}</p>
+					<p>작성 날짜 : <fmt:formatDate value="${readReply.regdate}" pattern="yyyy-MM-dd" /></p>
+					<p>${readReply.comment}</p>
+				<div>
+					<c:if test="${readReply.author == sessionScope.memId}">
+						<button type="button" class="deleteBtn" data-rno="${readReply.rno}">삭제</button>
+					</c:if>
+				</div>
+						<input type="hidden" id="bno" name="bno" value="${ readReply.bno}"/>
+				</li>	
+			</c:forEach>
+		</ol>
+			
+	<div>
+		<label for="author">댓글 작성자</label>
+		<input type="text" id="author" name="author" value=<%=session.getAttribute("memId") %>>
+		<label for="comment">댓글내용</label>
+		<input type="text" id="comment" name="comment">
+		<button type="button" id="replySubmitBtn">작성</button>
+	</div>
+	
+	
+</div>
+</div>
+```     
 </details>   
    
    
 ### 6. 느낀점    
-
+처음으로 혼자서 설계부터 원하는 형태로 구현을 하다보니 막히는 부분도 많았지만   
+끝까지 포기하지 않고 해결한 결과로 막히는 부분 해결하는 속도가 빨라졌습니다.   

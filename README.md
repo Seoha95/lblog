@@ -126,13 +126,13 @@ form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 �
 	</div>
 	
 	</form>
-```       
-     
-</details>       
-          
-<details>      
+```                 
+</details>	
+
+
+<details>           
 <summary>개선된 코드</summary>      
-```
+```    
 <div class="blog_container">
 	<div class="content_wrapper">
 			<div class="title"><c:out value="${pageInfo.title}"/></div>
@@ -178,8 +178,9 @@ form으로 댓글등록 하던 것을 javascript를 통해서 넘겨주면서 �
 	
 </div>
 </div>
-```     
-</details>   
+```         		
+</details>                   
+ 
    
    
 ### 6. 느낀점    
